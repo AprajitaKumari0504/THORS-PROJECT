@@ -1,0 +1,80 @@
+<div class="container-fluid">
+
+
+  <div class="row px-3 mt-3">
+    <div class="col-md-8">
+        <h6 class="font-weight-bold vista-heading">Widget Page</h6>
+    </div>
+ 
+    <div class="col-md-4 text-right">
+      <button class="btn btn-primary d-flex" data-toggle="modal" (click)="addWidget()" data-target="#widgetModal">+ Add Widget</button>
+    </div>
+</div>
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">name</th>
+            <th scope="col">description</th>
+            <th scope="col">components</th>
+            <th scope="col">count</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let data of datas">
+            <tr>
+                <th scope="row">{{data.id}}</th>
+                <td>{{data.name}}</td>
+                <td>{{data.description}}</td>
+                <td>{{data.components}}</td>
+                <td>{{data.count}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+<div class="container-fluid">
+  <div class="modal fade vista-modal-backdrop" id="widgetModal" tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="false" data-keyboard="false">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            <p class="vista-modal-title">
+              <!-- {{isAddModal === true ? "Add" : "Update"}} User Registration -->
+            </p>
+          </h5>
+          <button type="button" class="close" #modalCloseButton data-dismiss="modal" aria-label="Close" (click)="widgetForm.reset()" >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+                    
+            <form [formGroup]="widgetForm" (ngSubmit)="Submit()">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="vista-modal-sub-heading">
+                    <div class="ml-4 py-2 font-weight-bold">Product Admin Details</div>
+                  </div>
+                </div>
+
+               
+              </div>   
+              <div class="modal-footer">
+                <button type="reset" class="vista-secondary-btn text-right">Reset</button>
+                <button type="submit" class="vista-add-btn text-left">Add</button>
+              </div>           
+            </form>
+          </div>
+        </div>
+      </div>
+   </div>
+  </div>
+</div>
